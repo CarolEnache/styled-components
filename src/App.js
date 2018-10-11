@@ -45,6 +45,15 @@ const StyledLink = styled(Link)`
 
 const ReverseButton = props => <button {...props} children={props.children.split('').reverse()}/>
 
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: ${props => props.inputColor || 'palevioletred'};
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+`;
+
 class App extends Component {
   render() {
     return (
@@ -74,6 +83,8 @@ class App extends Component {
         <br/>
         <Link>Unstyled link</Link>
         <StyledLink>Styled link</StyledLink>
+        <Input defaultValue='with out props' type='text'/>
+        <Input defaultValue='with props' type='text' inputColor='rebeccapurple'/>
 
 
       </div>
