@@ -24,6 +24,11 @@ const Button = styled.button`
   border-radius: 3px;
 `;
 
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`;
+
 class App extends Component {
   render() {
     return (
@@ -47,6 +52,7 @@ class App extends Component {
         </Wrapper>
         < Button>Normal</Button>
         < Button primary>Primary</Button>
+        <TomatoButton>Tomato Button</TomatoButton>
       </div>
     );
   }
