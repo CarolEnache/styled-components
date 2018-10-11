@@ -64,6 +64,19 @@ const Paragraph = styled.p`
   font-size: 3rem;
 `;
 
+const InputAttrs = styled.input.attrs({
+  type: 'password',
+  margin: props => props.size || '1rem',
+  padding: props => props.size || '1rem'
+})`
+  color: palevioletred;
+  font-size: 1rem;
+  border: 2px solid palevioletred;
+  borde-radius: 3px;
+  margin: ${props => props.margin};
+  padding ${props => props.padding};
+`;
+
 class App extends Component {
   state = { count: 0 }
 
@@ -105,7 +118,9 @@ class App extends Component {
               <Button onClick={this.incremet}>Increment</Button>
               <Button primary onClick={this.decremet}>Decrement</Button>
           </StyledCounter>
-
+          <InputAttrs placeHolder='A small text input' size='1rem'/>
+          <br/>
+          <InputAttrs placeHolder='A big text input' size='2.5rem' />
       </div>
     );
   }
