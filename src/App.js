@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
 
@@ -77,6 +77,22 @@ const InputAttrs = styled.input.attrs({
   padding ${props => props.padding};
 `;
 
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Rotate = styled.div`
+    display: inlile-block;
+    animation: ${rotate360} 2s linear infinite;
+    padding 2rem 1rem;
+    font-size: 2.2rem;
+`;
+
 class App extends Component {
   state = { count: 0 }
 
@@ -121,6 +137,9 @@ class App extends Component {
           <InputAttrs placeHolder='A small text input' size='1rem'/>
           <br/>
           <InputAttrs placeHolder='A big text input' size='2.5rem' />
+          <Rotate>
+            Rotate
+          </Rotate>
       </div>
     );
   }
