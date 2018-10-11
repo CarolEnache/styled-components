@@ -14,6 +14,16 @@ const Wrapper = styled.section`
   background: papyawhip;
 `;
 
+const Button = styled.button`
+  background: ${props => props.primary ? 'palevioletred' : 'white'};
+  color: ${props => props.primary ? 'white' : 'palevioletred'};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
 class App extends Component {
   render() {
     return (
@@ -35,6 +45,8 @@ class App extends Component {
         <Wrapper>
           <Title>Let's Rock &amp; Roll</Title>
         </Wrapper>
+        < Button>Normal</Button>
+        < Button primary>Primary</Button>
       </div>
     );
   }
