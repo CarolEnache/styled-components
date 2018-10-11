@@ -10,7 +10,7 @@ const Title = styled.h1`
 `;
 
 const Wrapper = styled.section`
-  paddingL 4em;
+  padding:4em;
   background: papyawhip;
 `;
 
@@ -54,7 +54,22 @@ const Input = styled.input`
   border-radius: 3px;
 `;
 
+const StyledCounter = styled.div`
+  padding: 5rem;
+  width: 100%;
+  background-color: #a2b9bc;
+`;
+
+const Paragraph = styled.p`
+  font-size: 3rem;
+`;
+
 class App extends Component {
+  state = { count: 0 }
+
+  incremet = () => this.setState({ count: this.state.count +1});
+  decremet = () => this.setState({ count: this.state.count -1});
+
   render() {
     return (
       <div className="App">
@@ -72,20 +87,24 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Wrapper>
-          <Title>Let's Rock &amp; Roll</Title>
-        </Wrapper>
-        < Button>Normal</Button>
-        < Button primary>Primary</Button>
-        <TomatoButton>Tomato Button</TomatoButton>
-        <AnchorTagButton as='a' href='https://www.google.co.uk'>This button has Anchor Tag</AnchorTagButton>
-        <AnchorTagButton as={ReverseButton}>This button has Anchor Tag</AnchorTagButton>
-        <br/>
-        <Link>Unstyled link</Link>
-        <StyledLink>Styled link</StyledLink>
-        <Input defaultValue='with out props' type='text'/>
-        <Input defaultValue='with props' type='text' inputColor='rebeccapurple'/>
-
+          <Wrapper>
+            <Title>Let's Rock &amp; Roll</Title>
+          </Wrapper>
+          < Button>Normal</Button>
+          < Button primary>Primary</Button>
+          <TomatoButton>Tomato Button</TomatoButton>
+          <AnchorTagButton as='a' href='https://www.google.co.uk'>This button has Anchor Tag</AnchorTagButton>
+          <AnchorTagButton as={ReverseButton}>This button has Anchor Tag</AnchorTagButton>
+          <br/>
+          <Link>Unstyled link</Link>
+          <StyledLink>Styled link</StyledLink>
+          <Input defaultValue='with out props' type='text'/>
+          <Input defaultValue='with props' type='text' inputColor='rebeccapurple'/>
+          <StyledCounter>
+            <Paragraph>{this.state.count}</Paragraph>
+              <Button onClick={this.incremet}>Increment</Button>
+              <Button primary onClick={this.decremet}>Decrement</Button>
+          </StyledCounter>
 
       </div>
     );
