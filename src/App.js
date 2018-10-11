@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, {keyframes, ThemeProvider} from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
 
@@ -93,6 +93,25 @@ const Rotate = styled.div`
     font-size: 2.2rem;
 `;
 
+const ThemedButton = styled.button`
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 3px;
+  color: ${props => props.theme.main};
+  border: 2px solid ${props => props.theme.main};
+`;
+
+ThemedButton.defaultProps = {
+  theme: {
+    main: 'palevioletred'
+  }
+};
+
+const theme = {
+  main: 'mediumseagreen'
+}
+
 class App extends Component {
   state = { count: 0 }
 
@@ -140,6 +159,11 @@ class App extends Component {
           <Rotate>
             Rotate
           </Rotate>
+          <br/>
+          <ThemedButton>Normal Button</ThemedButton>
+          <ThemeProvider theme={theme}>
+            <ThemedButton>Themed Button</ThemedButton>
+          </ThemeProvider>
       </div>
     );
   }
