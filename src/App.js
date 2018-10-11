@@ -34,6 +34,15 @@ const AnchorTagButton = styled(Button)`
   border-color: blue;
 `;
 
+const Link = ({className, children}) => (
+  <a className={className} href='/'>{children}</a>
+);
+
+const StyledLink = styled(Link)`
+  color: palevioletred;
+  font-weight: bold; 
+`;
+
 const ReverseButton = props => <button {...props} children={props.children.split('').reverse()}/>
 
 class App extends Component {
@@ -60,8 +69,12 @@ class App extends Component {
         < Button>Normal</Button>
         < Button primary>Primary</Button>
         <TomatoButton>Tomato Button</TomatoButton>
-        <AnchorTagButton as='a' href='https://www.google.co.uk'>This button has Anchor Tag</AnchorTagButton> {/*For some reason not working, need to investigate*/}
-        <AnchorTagButton as={ReverseButton}>This button has Anchor Tag</AnchorTagButton> {/*For some reason not working, need to investigate*/}
+        <AnchorTagButton as='a' href='https://www.google.co.uk'>This button has Anchor Tag</AnchorTagButton>
+        <AnchorTagButton as={ReverseButton}>This button has Anchor Tag</AnchorTagButton>
+        <br/>
+        <Link>Unstyled link</Link>
+        <StyledLink>Styled link</StyledLink>
+
 
       </div>
     );
