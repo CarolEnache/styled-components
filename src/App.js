@@ -93,37 +93,36 @@ const Rotate = styled.div`
     font-size: 2.2rem;
 `;
 
-const ThemedButton = styled.button`
-  font-size: 1rem;
-  margin: 1rem;
-  padding: 0.25rem 1rem;
-  border-radius: 3px;
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
-`;
+// const ThemedButton = styled.button`
+//   font-size: 1rem;
+//   margin: 1rem;
+//   padding: 0.25rem 1rem;
+//   border-radius: 3px;
+//   color: ${props => props.theme.main};
+//   border: 2px solid ${props => props.theme.main};
+// `;
 
-ThemedButton.defaultProps = {
-  theme: {
-    main: 'palevioletred'
-  }
-};
+// ThemedButton.defaultProps = {
+//   theme: {
+//     main: 'palevioletred'
+//   }
+// };
+
+// const theme = {
+//   main: 'mediumseagreen',
+// }
+
+const FunctionalTheme = styled.button`
+color: ${props => props.theme.fg};
+border: 2px solid ${props => props.theme.fg};
+background: ${props => props.theme.bg};
+font-size: 1rem;
+margin: 1rem;
+padding: 0.25rem 1rem;
+border-radius: 3px;
+`;
 
 const theme = {
-  main: 'mediumseagreen',
-}
-
-const FunctionaTheme = styled.button`
-  color: ${props => props.FuncTheme.fg};
-  border: 2px solid ${props => props.FuncTheme.fg};
-  background: ${props => props.theme.bg};
-
-  font-size: 1rem;
-  margin: 1rem;
-  padding: 0.25rem 1rem;
-  border-radius: 3px;
-`;
-
-const FuncTheme = {
   fg: "palevioletred",
   bg: 'white'
  }
@@ -179,16 +178,16 @@ class App extends Component {
             Rotate
           </Rotate>
           <br/>
-          <ThemedButton>Normal Button</ThemedButton>
+          {/* <ThemedButton>Normal Button</ThemedButton>
           <ThemeProvider theme={theme}>
             <ThemedButton>Themed Button</ThemedButton>
-          </ThemeProvider>
+          </ThemeProvider> */}
           <br />
           <ThemeProvider theme={theme}>
             <div>
-              <ThemedButton>Normal Button</ThemedButton>
+              <FunctionalTheme>Normal Button</FunctionalTheme>
               <ThemeProvider theme={invertTheme}>
-                <FunctionaTheme>Themed Button</FunctionaTheme>
+                <FunctionalTheme>Themed Button</FunctionalTheme>
               </ThemeProvider>
             </div>
           </ThemeProvider>
