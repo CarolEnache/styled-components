@@ -109,8 +109,27 @@ ThemedButton.defaultProps = {
 };
 
 const theme = {
-  main: 'mediumseagreen'
+  main: 'mediumseagreen',
 }
+
+const FunctionaTheme = styled.button`
+  color: ${props => props.FuncTheme.fg};
+  border: 2px solid ${props => props.FuncTheme.fg};
+  background: ${props => props.theme.bg};
+
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 3px;
+`;
+
+const FuncTheme = {
+  fg: "palevioletred",
+  bg: 'white'
+ }
+
+const invertTheme = ({fg, bg}) => ({fg: bg, bg:fg});
+
 
 class App extends Component {
   state = { count: 0 }
@@ -138,8 +157,8 @@ class App extends Component {
           <Wrapper>
             <Title>Let's Rock &amp; Roll</Title>
           </Wrapper>
-          < Button>Normal</Button>
-          < Button primary>Primary</Button>
+          <Button>Normal</Button>
+          <Button primary>Primary</Button>
           <TomatoButton>Tomato Button</TomatoButton>
           <AnchorTagButton as='a' href='https://www.google.co.uk'>This button has Anchor Tag</AnchorTagButton>
           <AnchorTagButton as={ReverseButton}>This button has Anchor Tag</AnchorTagButton>
@@ -153,9 +172,9 @@ class App extends Component {
               <Button onClick={this.incremet}>Increment</Button>
               <Button primary onClick={this.decremet}>Decrement</Button>
           </StyledCounter>
-          <InputAttrs placeHolder='A small text input' size='1rem'/>
+          <InputAttrs placeholder='A small text input' size='1rem'/>
           <br/>
-          <InputAttrs placeHolder='A big text input' size='2.5rem' />
+          <InputAttrs placeholder='A big text input' size='2.5rem' />
           <Rotate>
             Rotate
           </Rotate>
@@ -163,6 +182,15 @@ class App extends Component {
           <ThemedButton>Normal Button</ThemedButton>
           <ThemeProvider theme={theme}>
             <ThemedButton>Themed Button</ThemedButton>
+          </ThemeProvider>
+          <br />
+          <ThemeProvider theme={theme}>
+            <div>
+              <ThemedButton>Normal Button</ThemedButton>
+              <ThemeProvider theme={invertTheme}>
+                <FunctionaTheme>Themed Button</FunctionaTheme>
+              </ThemeProvider>
+            </div>
           </ThemeProvider>
       </div>
     );
